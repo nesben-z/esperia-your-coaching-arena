@@ -18,11 +18,11 @@ export const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Mock form submission
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Message envoyé !",
+      description: "Nous vous répondrons dans les plus brefs délais.",
     });
 
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -36,16 +36,16 @@ export const ContactSection = () => {
             <div className="mx-auto h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
               <Mail className="h-6 w-6 text-primary" />
             </div>
-            <CardTitle className="text-3xl">Service Proposition</CardTitle>
+            <CardTitle className="text-3xl">Proposition de Service</CardTitle>
             <CardDescription>
-              Have a custom coaching request? Let us know what you need
+              Vous avez une demande de coaching personnalisée ? Faites-nous savoir ce dont vous avez besoin
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name">Nom</Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -65,7 +65,7 @@ export const ContactSection = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="subject">Sujet</Label>
                 <Input
                   id="subject"
                   value={formData.subject}
@@ -84,7 +84,7 @@ export const ContactSection = () => {
                 />
               </div>
               <Button type="submit" variant="hero" className="w-full">
-                Send Message
+                Envoyer le Message
               </Button>
             </form>
           </CardContent>
