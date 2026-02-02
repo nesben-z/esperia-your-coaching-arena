@@ -2,12 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
 */
 
 @layer base {
+  /* Theme Gaming Dark avec Néons - Par défaut */
   :root {
+    --background: 220 27% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 27% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 27% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 177 100% 50%;
+    --primary-foreground: 220 27% 8%;
+
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 20% 14%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 280 100% 65%;
+    --accent-foreground: 220 27% 8%;
+
+    --gaming: 320 100% 60%;
+    --gaming-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 14%;
+    --ring: 177 100% 50%;
+
+    --radius: 0.5rem;
+
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(177 100% 50%) 0%,
+      hsl(280 100% 65%) 50%,
+      hsl(320 100% 60%) 100%
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(177 100% 50% / 0.15) 0%,
+      hsl(280 100% 65% / 0.15) 50%,
+      hsl(320 100% 60% / 0.15) 100%
+    );
+    --gradient-neon: linear-gradient(
+      90deg,
+      hsl(177 100% 50%) 0%,
+      hsl(280 100% 65%) 50%,
+      hsl(320 100% 60%) 100%
+    );
+    --shadow-gaming: 0 0 20px hsl(177 100% 50% / 0.5),
+      0 0 40px hsl(280 100% 65% / 0.3);
+    --shadow-neon-cyan: 0 0 10px hsl(177 100% 50% / 0.8),
+      0 0 20px hsl(177 100% 50% / 0.6), 0 0 30px hsl(177 100% 50% / 0.4);
+    --shadow-neon-purple: 0 0 10px hsl(280 100% 65% / 0.8),
+      0 0 20px hsl(280 100% 65% / 0.6), 0 0 30px hsl(280 100% 65% / 0.4);
+    --shadow-neon-pink: 0 0 10px hsl(320 100% 60% / 0.8),
+      0 0 20px hsl(320 100% 60% / 0.6), 0 0 30px hsl(320 100% 60% / 0.4);
+
+    --sidebar-background: 220 27% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 177 100% 50%;
+    --sidebar-primary-foreground: 220 27% 8%;
+    --sidebar-accent: 220 20% 14%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 177 100% 50%;
+  }
+
+  /* Theme Admin - Clair et professionnel */
+  .admin-theme {
     --background: 0 0% 100%;
     --foreground: 222 47% 11%;
 
@@ -32,79 +105,21 @@ All colors MUST be HSL.
     --gaming: 280 100% 65%;
     --gaming-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
     --border: 240 6% 90%;
     --input: 240 6% 90%;
     --ring: 195 100% 50%;
 
-    --radius: 0.5rem;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(280 100% 65%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(195 100% 50% / 0.1) 0%, hsl(280 100% 65% / 0.1) 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(195 100% 50%) 0%,
+      hsl(280 100% 65%) 100%
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(195 100% 50% / 0.1) 0%,
+      hsl(280 100% 65% / 0.1) 100%
+    );
     --shadow-gaming: 0 10px 40px -10px hsl(195 100% 50% / 0.3);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222 47% 5%;
-    --foreground: 0 0% 98%;
-
-    --card: 222 47% 8%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 222 47% 8%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 195 100% 50%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 240 4% 16%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 4% 16%;
-    --muted-foreground: 240 5% 65%;
-
-    --accent: 33 100% 50%;
-    --accent-foreground: 0 0% 100%;
-
-    --gaming: 280 100% 65%;
-    --gaming-foreground: 0 0% 100%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 195 100% 50%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(280 100% 65%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(195 100% 50% / 0.15) 0%, hsl(280 100% 65% / 0.15) 100%);
-    --shadow-gaming: 0 10px 40px -10px hsl(195 100% 50% / 0.4);
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -115,5 +130,152 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Effets Gaming & Néon */
+@layer utilities {
+  .glow-cyan {
+    box-shadow: var(--shadow-neon-cyan);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-neon-purple);
+  }
+
+  .glow-pink {
+    box-shadow: var(--shadow-neon-pink);
+  }
+
+  .text-glow-cyan {
+    text-shadow: var(--shadow-neon-cyan);
+  }
+
+  .text-glow-purple {
+    text-shadow: var(--shadow-neon-purple);
+  }
+
+  .text-glow-pink {
+    text-shadow: var(--shadow-neon-pink);
+  }
+
+  .gradient-gaming {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-neon {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .card-gaming {
+    background: linear-gradient(
+      145deg,
+      hsl(var(--card)) 0%,
+      hsl(220 27% 12%) 100%
+    );
+    border: 1px solid hsl(220 20% 20%);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-gaming:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3),
+      0 4px 24px -1px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Animations Gaming */
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.8),
+        0 0 30px hsl(var(--primary) / 0.5);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Scanline effect */
+  .scanlines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanlines::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      transparent,
+      hsl(var(--primary) / 0.3),
+      transparent
+    );
+    animation: scan 3s linear infinite;
+    pointer-events: none;
+  }
+
+  /* Grid background */
+  .bg-grid {
+    background-image: linear-gradient(
+        hsl(var(--primary) / 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  /* Neon button */
+  .btn-neon {
+    position: relative;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border: 2px solid hsl(var(--primary));
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5),
+      inset 0 0 10px hsl(var(--primary) / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-neon:hover {
+    background: transparent;
+    color: hsl(var(--primary));
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8),
+      0 0 40px hsl(var(--primary) / 0.5),
+      inset 0 0 20px hsl(var(--primary) / 0.3);
+    transform: translateY(-2px);
   }
 }

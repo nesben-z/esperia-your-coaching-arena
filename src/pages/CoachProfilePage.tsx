@@ -152,9 +152,15 @@ const CoachProfilePage = () => {
             </Avatar>
 
             <div className="flex-1">
-              <h1 className="text-4xl font-bold mb-2">
-                {coach.firstName} {coach.lastName}
-              </h1>
+              <div className="flex items-center gap-3 mb-2">
+                <h1 className="text-4xl font-bold">
+                  {coach.firstName} {coach.lastName}
+                </h1>
+                <Badge className="bg-primary text-primary-foreground flex items-center gap-1">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Certifié
+                </Badge>
+              </div>
               <p className="text-lg text-muted-foreground mb-4">
                 {coach.description}
               </p>
@@ -256,7 +262,7 @@ const CoachProfilePage = () => {
       {/* Stats Bar */}
       <div className="border-b border-border bg-card">
         <div className="container mx-auto px-4 py-6">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-1">
                 <BarChart3 className="h-4 w-4 text-primary" />
@@ -274,15 +280,6 @@ const CoachProfilePage = () => {
                 </span>
               </div>
               <p className="text-xs text-muted-foreground">Success Rate</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-2 mb-1">
-                <Clock className="h-4 w-4 text-gaming" />
-                <span className="text-2xl font-bold">
-                  {mockStats.avgSessionDuration}
-                </span>
-              </div>
-              <p className="text-xs text-muted-foreground">Avg Duration</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-1">

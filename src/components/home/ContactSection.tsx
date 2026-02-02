@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail } from "lucide-react";
+import { Handshake, Mail } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -38,7 +45,8 @@ export const ContactSection = () => {
             </div>
             <CardTitle className="text-3xl">Proposition de Service</CardTitle>
             <CardDescription>
-              Vous avez une demande de coaching personnalisée ? Faites-nous savoir ce dont vous avez besoin
+              Vous avez une demande de coaching personnalisée ? Faites-nous
+              savoir ce dont vous avez besoin
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -49,7 +57,9 @@ export const ContactSection = () => {
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -59,17 +69,21 @@ export const ContactSection = () => {
                     id="email"
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                  <Label htmlFor="subject">Sujet</Label>
+                <Label htmlFor="subject">Sujet</Label>
                 <Input
                   id="subject"
                   value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -79,7 +93,9 @@ export const ContactSection = () => {
                   id="message"
                   rows={5}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -87,6 +103,17 @@ export const ContactSection = () => {
                 Envoyer le Message
               </Button>
             </form>
+            <div className="mt-6 pt-6 border-t border-border text-center">
+              <p className="text-sm text-muted-foreground mb-3">
+                Vous souhaitez devenir partenaire officiel d'Esperia ?
+              </p>
+              <Button variant="outline" asChild>
+                <Link to="/partner">
+                  <Handshake className="mr-2 h-4 w-4" />
+                  Devenir Partenaire
+                </Link>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>

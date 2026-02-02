@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Mail, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -18,7 +18,8 @@ export const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Elevate your e-sports game with professional coaching from the best in the industry.
+              Elevate your e-sports game with professional coaching from the
+              best in the industry.
             </p>
           </div>
 
@@ -27,17 +28,34 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/coaches" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/coaches"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Find Coaches
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/partner"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Devenir Partenaire
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/pricing"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Pricing
                 </Link>
               </li>
@@ -49,17 +67,26 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/faq"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link
+                  to="/contact"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a
+                  href="#"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Help Center
                 </a>
               </li>
@@ -84,10 +111,16 @@ export const Footer = () => {
               © 2024 Esperia. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link
+                to="/privacy"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link to="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+              <Link
+                to="/terms"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
                 Terms of Service
               </Link>
             </div>
