@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Mail } from "lucide-react";
+import { Handshake, Mail } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -18,11 +25,11 @@ export const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Mock form submission
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Message envoyé !",
+      description: "Nous vous répondrons dans les plus brefs délais.",
     });
 
     setFormData({ name: "", email: "", subject: "", message: "" });
@@ -36,20 +43,23 @@ export const ContactSection = () => {
             <div className="mx-auto h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
               <Mail className="h-6 w-6 text-primary" />
             </div>
-            <CardTitle className="text-3xl">Service Proposition</CardTitle>
+            <CardTitle className="text-3xl">Proposition de Service</CardTitle>
             <CardDescription>
-              Have a custom coaching request? Let us know what you need
+              Vous avez une demande de coaching personnalisée ? Faites-nous
+              savoir ce dont vous avez besoin
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name">Nom</Label>
                   <Input
                     id="name"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     required
                   />
                 </div>
@@ -59,17 +69,21 @@ export const ContactSection = () => {
                     id="email"
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     required
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
+                <Label htmlFor="subject">Sujet</Label>
                 <Input
                   id="subject"
                   value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, subject: e.target.value })
+                  }
                   required
                 />
               </div>
@@ -79,14 +93,27 @@ export const ContactSection = () => {
                   id="message"
                   rows={5}
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   required
                 />
               </div>
               <Button type="submit" variant="hero" className="w-full">
-                Send Message
+                Envoyer le Message
               </Button>
             </form>
+            <div className="mt-6 pt-6 border-t border-border text-center">
+              <p className="text-sm text-muted-foreground mb-3">
+                Vous souhaitez devenir partenaire officiel d'Esperia ?
+              </p>
+              <Button variant="outline" asChild>
+                <Link to="/partner">
+                  <Handshake className="mr-2 h-4 w-4" />
+                  Devenir Partenaire
+                </Link>
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>

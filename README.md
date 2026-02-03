@@ -1,73 +1,163 @@
-# Welcome to your Lovable project
+# 🎮 Esperia - Plateforme de Coaching E-Sports
 
-## Project info
+Plateforme professionnelle de coaching e-sports permettant aux joueurs de se connecter avec des coachs d'élite pour améliorer leurs compétences de jeu compétitif.
 
-**URL**: https://lovable.dev/projects/db6970a5-64af-439f-bfee-829dccbcacb1
+## 🚀 Technologies Utilisées
 
-## How can I edit this code?
+- **React 18** - Bibliothèque UI moderne
+- **TypeScript** - Typage statique pour une meilleure qualité de code
+- **Vite** - Build tool ultra-rapide
+- **Tailwind CSS** - Framework CSS utilitaire
+- **shadcn/ui** - Composants UI accessibles et personnalisables
+- **React Router** - Navigation et routage
+- **TanStack Query** - Gestion des données et cache
 
-There are several ways of editing your application.
+## 📋 Prérequis
 
-**Use Lovable**
+Avant de commencer, assurez-vous d'avoir installé :
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/db6970a5-64af-439f-bfee-829dccbcacb1) and start prompting.
+- **Node.js** (version 18 ou supérieure) - [Télécharger Node.js](https://nodejs.org/)
+- **npm** (généralement inclus avec Node.js)
 
-Changes made via Lovable will be committed automatically to this repo.
+Pour vérifier vos installations :
 
-**Use your preferred IDE**
+```bash
+node --version
+npm --version
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Cloner le repository** (si vous ne l'avez pas déjà fait)
 
-Follow these steps:
+```bash
+git clone <VOTRE_URL_GIT>
+cd esperia-your-coaching-arena
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Installer les dépendances**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+Cette commande installera toutes les dépendances nécessaires listées dans `package.json`.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## ▶️ Lancer le Projet
+
+### Mode Développement
+
+Pour lancer le serveur de développement avec rechargement automatique :
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+ou simplement :
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm start
+```
 
-**Use GitHub Codespaces**
+Le projet sera accessible à l'adresse : **http://localhost:8080**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Build de Production
 
-## What technologies are used for this project?
+Pour créer une version optimisée pour la production :
 
-This project is built with:
+```bash
+npm run build
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Les fichiers de production seront générés dans le dossier `dist/`.
 
-## How can I deploy this project?
+### Prévisualiser le Build
 
-Simply open [Lovable](https://lovable.dev/projects/db6970a5-64af-439f-bfee-829dccbcacb1) and click on Share -> Publish.
+Pour prévisualiser la version de production localement :
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+npm run preview
+```
 
-Yes, you can!
+## 📁 Structure du Projet
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```
+esperia-your-coaching-arena/
+├── public/              # Fichiers statiques
+├── src/
+│   ├── assets/         # Images et ressources
+│   ├── components/      # Composants React
+│   │   ├── home/       # Composants de la page d'accueil
+│   │   ├── layout/     # Navbar, Footer
+│   │   └── ui/         # Composants UI (shadcn)
+│   ├── contexts/       # Contextes React (Auth, etc.)
+│   ├── data/           # Données mockées
+│   ├── hooks/          # Hooks personnalisés
+│   ├── lib/            # Utilitaires
+│   ├── pages/          # Pages de l'application
+│   ├── types/          # Types TypeScript
+│   ├── App.tsx         # Composant principal
+│   ├── main.tsx        # Point d'entrée
+│   └── index.css       # Styles globaux
+├── index.html          # Template HTML
+├── package.json        # Dépendances et scripts
+├── vite.config.ts      # Configuration Vite
+└── tailwind.config.ts  # Configuration Tailwind
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🎨 Fonctionnalités
+
+- ✅ Page d'accueil avec hero section
+- ✅ Liste des coachs disponibles
+- ✅ Profils de coachs détaillés
+- ✅ Système d'authentification (frontend)
+- ✅ Espace étudiant
+- ✅ Espace administrateur
+- ✅ Design responsive et moderne
+- ✅ Mode sombre (préparé)
+
+## 🔧 Scripts Disponibles
+
+- `npm run dev` - Lance le serveur de développement
+- `npm start` - Alias pour `npm run dev`
+- `npm run build` - Crée un build de production
+- `npm run build:dev` - Crée un build en mode développement
+- `npm run preview` - Prévisualise le build de production
+- `npm run lint` - Vérifie le code avec ESLint
+
+## 📝 Notes Importantes
+
+⚠️ **Backend non connecté** : Pour l'instant, l'application fonctionne uniquement en frontend avec des données mockées. La connexion au backend sera ajoutée ultérieurement.
+
+## 🐛 Dépannage
+
+### Problème : `npm install` échoue
+
+- Vérifiez que vous avez Node.js 18+ installé
+- Supprimez `node_modules` et `package-lock.json`, puis réessayez :
+  ```bash
+  rm -rf node_modules package-lock.json
+  npm install
+  ```
+
+### Problème : Le serveur ne démarre pas
+
+- Vérifiez que le port 8080 n'est pas déjà utilisé
+- Modifiez le port dans `vite.config.ts` si nécessaire
+
+### Problème : Erreurs TypeScript
+
+- Vérifiez que toutes les dépendances sont installées
+- Exécutez `npm install` à nouveau
+
+## 📄 Licence
+
+Ce projet est privé. Tous droits réservés.
+
+## 👥 Contribution
+
+Pour l'instant, ce projet est en développement. Les contributions seront les bienvenues une fois le backend connecté.
+
+---
+
+**Développé avec ❤️ pour les passionnés d'e-sports**

@@ -1,12 +1,24 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Check, Trash2, Pencil, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useAuth } from "@/contexts/AuthContext";
 import { mockOffers } from "@/data/mockData";
 import { Offer } from "@/types";
+import { Check, Pencil, Plus, Trash2 } from "lucide-react";
+import { useState } from "react";
 
 export const OffersSection = () => {
   const { user } = useAuth();
@@ -15,15 +27,19 @@ export const OffersSection = () => {
   const isAdmin = user?.role === "admin";
 
   const handleDelete = (id: string) => {
-    setOffers(offers.filter(o => o.id !== id));
+    setOffers(offers.filter((o) => o.id !== id));
   };
 
   return (
     <section className="container mx-auto px-4 py-16 bg-gradient-hero">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h2 className="text-3xl font-bold mb-2">Our Coaching Packages</h2>
-          <p className="text-muted-foreground">Choose the perfect plan for your gaming journey</p>
+          <h2 className="text-3xl font-bold mb-2">
+            Nos Packages de Coaching pour Élèves
+          </h2>
+          <p className="text-muted-foreground">
+            Choisissez le plan parfait pour votre progression gaming
+          </p>
         </div>
         {isAdmin && (
           <Button variant="outline">
@@ -35,9 +51,13 @@ export const OffersSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {offers.map((offer) => (
-          <Card 
-            key={offer.id} 
-            className={`relative ${offer.popular ? 'border-primary shadow-lg ring-2 ring-primary/20' : ''} hover:shadow-xl transition-shadow`}
+          <Card
+            key={offer.id}
+            className={`relative ${
+              offer.popular
+                ? "border-primary shadow-lg ring-2 ring-primary/20"
+                : ""
+            } hover:shadow-xl transition-shadow`}
           >
             {offer.popular && (
               <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary">
@@ -49,7 +69,11 @@ export const OffersSection = () => {
                 <Button size="sm" variant="ghost">
                   <Pencil className="h-3 w-3" />
                 </Button>
-                <Button size="sm" variant="ghost" onClick={() => handleDelete(offer.id)}>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  onClick={() => handleDelete(offer.id)}
+                >
                   <Trash2 className="h-3 w-3" />
                 </Button>
               </div>
@@ -71,8 +95,8 @@ export const OffersSection = () => {
                   </li>
                 ))}
               </ul>
-              <Button 
-                variant={offer.popular ? "hero" : "outline"} 
+              <Button
+                variant={offer.popular ? "hero" : "outline"}
                 className="w-full"
                 onClick={() => setSelectedOffer(offer)}
               >
@@ -84,7 +108,10 @@ export const OffersSection = () => {
       </div>
 
       {/* Offer Details Dialog */}
-      <Dialog open={!!selectedOffer} onOpenChange={() => setSelectedOffer(null)}>
+      <Dialog
+        open={!!selectedOffer}
+        onOpenChange={() => setSelectedOffer(null)}
+      >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>{selectedOffer?.title}</DialogTitle>
@@ -92,7 +119,9 @@ export const OffersSection = () => {
           </DialogHeader>
           <div className="space-y-4">
             <div className="text-center py-4">
-              <span className="text-4xl font-bold">${selectedOffer?.price}</span>
+              <span className="text-4xl font-bold">
+                ${selectedOffer?.price}
+              </span>
               <span className="text-muted-foreground">/month</span>
             </div>
             <ul className="space-y-3">

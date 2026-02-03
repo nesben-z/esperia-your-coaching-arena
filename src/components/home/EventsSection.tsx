@@ -35,8 +35,8 @@ export const EventsSection = () => {
         {events.map((event) => (
           <Card key={event.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
             <div className="relative h-48 overflow-hidden">
-              <img 
-                src={event.image} 
+              <img
+                src={event.image}
                 alt={event.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
@@ -57,10 +57,10 @@ export const EventsSection = () => {
             <CardHeader>
               <div className="flex items-center text-sm text-muted-foreground mb-2">
                 <Calendar className="mr-2 h-4 w-4" />
-                {new Date(event.date).toLocaleDateString('en-US', { 
-                  month: 'long', 
-                  day: 'numeric', 
-                  year: 'numeric' 
+                {new Date(event.date).toLocaleDateString('fr-FR', {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric'
                 })}
               </div>
               <CardTitle>{event.title}</CardTitle>

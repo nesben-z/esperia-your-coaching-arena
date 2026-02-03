@@ -1,13 +1,25 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Star, Users, DollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { mockCoaches, mockGameCategories } from "@/data/mockData";
 import { Coach } from "@/types";
+import { DollarSign, Star, Users, X } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CoachesPage = () => {
   const [coaches] = useState<Coach[]>(mockCoaches);
@@ -20,7 +32,9 @@ const CoachesPage = () => {
     if (game === "all") {
       setFilteredCoaches(coaches);
     } else {
-      setFilteredCoaches(coaches.filter(coach => coach.gameCategories.includes(game)));
+      setFilteredCoaches(
+        coaches.filter((coach) => coach.gameCategories.includes(game))
+      );
     }
   };
 
@@ -43,13 +57,21 @@ const CoachesPage = () => {
     setFilteredCoaches(sorted);
   };
 
+  const handleResetFilters = () => {
+    setSelectedGame("all");
+    setSortBy("rating");
+    setFilteredCoaches(coaches);
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-grid">
       {/* Header */}
-      <div className="bg-gradient-hero py-12 border-b border-border">
+      <div className="bg-gradient-hero py-12 border-b border-border scanlines">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-bold mb-2">Find Your Coach</h1>
-          <p className="text-muted-foreground">Browse professional coaches and level up your game</p>
+          <p className="text-muted-foreground">
+            Browse professional coaches and level up your game
+          </p>
         </div>
       </div>
 
@@ -83,6 +105,15 @@ const CoachesPage = () => {
               </SelectContent>
             </Select>
 
+            <Button
+              variant="outline"
+              onClick={handleResetFilters}
+              className="md:w-auto"
+            >
+              <X className="mr-2 h-4 w-4" />
+              Réinitialiser les filtres
+            </Button>
+
             <div className="flex-1 text-sm text-muted-foreground flex items-center">
               {filteredCoaches.length} coaches found
             </div>
@@ -94,20 +125,26 @@ const CoachesPage = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCoaches.map((coach) => (
-            <Card key={coach.id} className="hover:shadow-lg transition-shadow group">
+            <Card
+              key={coach.id}
+              className="hover:shadow-lg transition-shadow group"
+            >
               <CardHeader>
                 <div className="flex items-start gap-4">
                   <Avatar className="h-16 w-16 ring-2 ring-primary/20">
                     <AvatarImage src={coach.avatar} />
                     <AvatarFallback>
-                      {coach.firstName[0]}{coach.lastName[0]}
+                      {coach.firstName[0]}
+                      {coach.lastName[0]}
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1">
                     <CardTitle className="text-lg group-hover:text-primary transition-colors">
                       {coach.firstName} {coach.lastName}
                     </CardTitle>
-                    <CardDescription className="line-clamp-2">{coach.description}</CardDescription>
+                    <CardDescription className="line-clamp-2">
+                      {coach.description}
+                    </CardDescription>
                   </div>
                 </div>
               </CardHeader>
@@ -124,12 +161,16 @@ const CoachesPage = () => {
                   <div className="flex flex-col items-center p-2 bg-secondary rounded-md">
                     <Star className="h-4 w-4 fill-primary text-primary mb-1" />
                     <span className="font-semibold">{coach.rating}</span>
-                    <span className="text-xs text-muted-foreground">Rating</span>
+                    <span className="text-xs text-muted-foreground">
+                      Rating
+                    </span>
                   </div>
                   <div className="flex flex-col items-center p-2 bg-secondary rounded-md">
                     <Users className="h-4 w-4 text-accent mb-1" />
                     <span className="font-semibold">{coach.studentCount}</span>
-                    <span className="text-xs text-muted-foreground">Students</span>
+                    <span className="text-xs text-muted-foreground">
+                      Students
+                    </span>
                   </div>
                   <div className="flex flex-col items-center p-2 bg-secondary rounded-md">
                     <DollarSign className="h-4 w-4 text-gaming mb-1" />
